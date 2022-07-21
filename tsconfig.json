@@ -1,0 +1,12 @@
+{
+    "extends": "@tsconfig/node16/tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "./dist",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    }
+}
