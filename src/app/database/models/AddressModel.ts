@@ -13,7 +13,7 @@ import {
     ForeignKey,
     BelongsTo
 } from "sequelize-typescript";
-import { Customers } from ".";
+import { City, Customers } from ".";
 
 @Table
 class address extends Model {
