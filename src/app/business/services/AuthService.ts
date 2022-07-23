@@ -1,9 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import {
-    EmailAlreadyInUseError,
-    InvalidCredentialsError,
-} from "@/shared/errors/";
+import { EmailAlreadyInUseError, InvalidCredentialsError } from "@/shared/errors/";
 import { PasswordFacade, TokenFacade } from "../facades/";
 import { User } from "@/app/database/models/";
 import { IUserRepository } from "@/app/database/repositories/";

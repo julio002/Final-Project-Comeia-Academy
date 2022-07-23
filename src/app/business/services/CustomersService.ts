@@ -1,27 +1,34 @@
 import { inject, injectable } from 'tsyringe';
 
-import {
-    EmailAlreadyInUseError,
-    InvalidCredentialsError,
-    ResourceNotFoundError
-} from "@/shared/errors/";
-import { IBaseRepository } from "@/app/database/repositories/";
-import { CustomersOutput } from "@/app/database/models/CustomersModel";
+import { ICustomersRepository } from "@/app/database/repositories/";
+import { CustomersInput, CustomersOutput } from '@/shared/types/interfaces/Customers';
+import { Model } from 'sequelize-typescript';
 
 @injectable()
 class CustomersService {
     constructor(
-        @inject("BaseRepository")
-        private readonly CustomersRepository: IBaseRepository
+        @inject("CustomersRepository")
+        private readonly CustomersRepository: ICustomersRepository
     ) {}
 
-    public async getAll(): Promise<{rows:CustomersOutput[], count: number}> => {
-        if (await this.const.emailExists(email)) {
-            throw new EmailAlreadyInUseError()
-        }
+    public async getAll(): Promise<CustomersOutput[]> {
+        return await this.CustomersRepository.getAll()  
+    }
 
-        return await CustomersRepository.getAll()
-        
+    public async getById(id: number): Promise<CustomersOutput> {
+        return await this.CustomersRepository.getById(id)  
+    }
+
+    public async create(data: CustomersInput): Promise<Model> {
+        return await this.CustomersRepository.create(data)  
+    }
+
+    public async updateById(id: number, data: CustomersInput): Promise<CustomersOutput> {
+        return await this.CustomersRepository.updateById(id, data)  
+    }
+
+    public async deleteById(id: number): Promise<boolean> {
+        return await this.CustomersRepository.deleteById(id)  
     }
 }
 

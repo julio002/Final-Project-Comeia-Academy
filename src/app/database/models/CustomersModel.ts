@@ -9,19 +9,18 @@ import {
     AllowNull,
     Unique,
     Default,
-    AutoIncrement
-    
+    AutoIncrement,
+    PrimaryKey
 } from "sequelize-typescript";
-import { Optional } from "sequelize/types";
 
 @Table
-class Customers extends Model {
+class customer extends Model {
 
     @Length({ max: 255 })
-    @AllowNull(false)
     @AutoIncrement
-    @Column
     @Unique
+    @PrimaryKey
+    @Column
     customer_id!: number
 
     @Length({ max: 255 })
@@ -65,8 +64,4 @@ class Customers extends Model {
     active!: number;
 }
 
-export interface CustomersInput
-    extends Optional<Customers, "customer_id"> {}
-export interface CustomersOutput extends Required<Customers> {}
-
-export default Customers;
+export default customer;
