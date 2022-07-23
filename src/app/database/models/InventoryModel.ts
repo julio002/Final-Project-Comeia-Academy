@@ -8,7 +8,8 @@ import {
     AutoIncrement,
     PrimaryKey,
     BelongsTo,
-    ForeignKey
+    ForeignKey,
+    DataType
 } from "sequelize-typescript";
 
 @Table
@@ -17,14 +18,14 @@ class inventory extends Model {
     @Length({ max: 255 })
     @AutoIncrement
     @PrimaryKey
-    @Column
+    @Column(DataType.INTEGER)
     inventory_id!: number
 
     @Length({ max: 255 })
     @AllowNull(false)
     @ForeignKey(() => Film)
     @BelongsTo(() => Film)
-    @Column
+    @Column(DataType.INTEGER)
     film_id!: Film;
 
     @UpdatedAt

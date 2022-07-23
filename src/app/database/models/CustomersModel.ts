@@ -10,8 +10,12 @@ import {
     Unique,
     Default,
     AutoIncrement,
-    PrimaryKey
+    PrimaryKey,
+    DataType,
+    ForeignKey,
+    BelongsTo
 } from "sequelize-typescript";
+import Address from "./AddressModel";
 
 @Table
 class customer extends Model {
@@ -20,38 +24,42 @@ class customer extends Model {
     @AutoIncrement
     @Unique
     @PrimaryKey
-    @Column
+    @Column(DataType.INTEGER)
     customer_id!: number
 
     @Length({ max: 255 })
     @AllowNull(false)
-    @Column
+    @Column(DataType.INTEGER)
     store_id!: number;
 
-    @Length({ min: 3, max: 254 })
+    @Length({ min: 3, max: 45 })
     @AllowNull(false)
-    @Column
+    @Column(DataType.STRING(45))
     first_name!: string;
 
-    @Length({ max: 60 })
+    @Length({ max: 45 })
     @AllowNull(false)
-    @Column
+    @Column(DataType.STRING(45))
     last_name!: string;
 
     @IsEmail
-    @Length({ max: 254 })
+    @Default(true)
+    @Length({ max: 50 })
     @Unique
-    @Column
+    @Column(DataType.STRING(50))
     email!: string;
 
     @Length({ max: 255 })
+    @ForeignKey(() => Address)
     @AllowNull(false)
-    @Column
+    @Column(DataType.INTEGER)
     address_id!: number;
 
+    @BelongsTo(() => Address)
+    address!: Address
+
     @AllowNull(false)
-    @Default(true)
-    @Column
+    @Column(DataType.BOOLEAN)
     activebool!: boolean;
 
     @CreatedAt
@@ -60,7 +68,8 @@ class customer extends Model {
     @UpdatedAt
     last_update!: Date;
 
-    @Column
+    @Default(true)
+    @Column(DataType.INTEGER)
     active!: number;
 }
 
