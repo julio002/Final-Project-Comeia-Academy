@@ -7,6 +7,7 @@ import {
   AllowNull,
   AutoIncrement,
   HasOne,
+  Default,
 } from "sequelize-typescript";
 import Film_Category from "./FilmCategoryModel";
 
@@ -20,7 +21,7 @@ class Category extends Model {
   category_id!: Film_Category[];
 
   @Length({ min: 3, max: 255 })
-  @AllowNull(false)
+  @Default(true)
   @Column
   name!: string;
 
