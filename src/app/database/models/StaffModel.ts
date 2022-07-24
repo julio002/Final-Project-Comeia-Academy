@@ -15,8 +15,8 @@ import {
     IsEmail,
     Unique,
     HasOne
-} from "sequelize-typescript";
-import { Address, Store, Payments } from ".";
+} from "sequelize-typescript"
+import { Address, Store, Payments, Rental } from "."
 
 @Table({
     tableName: "staff"
@@ -27,7 +27,7 @@ class Staff extends Model {
     @AutoIncrement
     @PrimaryKey
     @Column(DataType.INTEGER)
-    staff_id!: number;
+    staff_id!: number
 
     @HasMany(() => Rental)
     rental!: Rental[]
@@ -52,7 +52,7 @@ class Staff extends Model {
     @ForeignKey(() => Address)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    address_id!: number;
+    address_id!: number
 
     @BelongsTo(() => Address)
     address!: Address
@@ -61,18 +61,18 @@ class Staff extends Model {
     @Length({ max: 50 })
     @Unique
     @Column(DataType.STRING(50))
-    email!: string;
+    email!: string
 
     @Length({ max: 255 })
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    store_id!: number;
+    store_id!: number
 
     @Length({ max: 255})
     @AllowNull(false)
     @Default(true)
     @Column(DataType.INTEGER)
-    active!: number;
+    active!: number
 
     @Length({ max: 16 })
     @AllowNull(false)
@@ -85,8 +85,8 @@ class Staff extends Model {
     password!: string
 
     @UpdatedAt
-    last_update!: Date;
+    last_update!: Date
 
 }
 
-export default Staff;
+export default Staff

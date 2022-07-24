@@ -1,15 +1,15 @@
-import { Model } from "sequelize-typescript";
+import { Model } from "sequelize-typescript"
 
 interface IBaseRepository<Input, Output> {
-    getAll(attributes?: string[]): Promise<Output[]>;
+    getAll(attributes?: string[]): Promise<Output[]>
 
-    getById(id: number, attributes?: string[]): Promise<Output>;
+    getById(id: number, attributes?: string[]): Promise<Output>
 
-    create(data: Input): Promise<Model>;
+    create(data: Input): Promise<Model>
 
-    updateById(id: number, data: Input): Promise<Output>;
+    updateById(id: number, data: Input): Promise<Output>
 
-    deleteById(id: number): Promise<boolean>;
+    deleteById(id: number): Promise<boolean>
 }
 
-export default IBaseRepository;
+export default IBaseRepository

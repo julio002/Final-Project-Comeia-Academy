@@ -10,8 +10,8 @@ import {
     DataType,
     ForeignKey,
     BelongsTo
-} from "sequelize-typescript";
-import { Address, Staff } from ".";
+} from "sequelize-typescript"
+import { Address, Staff } from "."
 
 @Table({
     tableName: "store"
@@ -21,13 +21,13 @@ class Store extends Model {
     @AutoIncrement
     @PrimaryKey
     @Column(DataType.INTEGER)
-    store_id!: number;
+    store_id!: number
 
     @Length({ max: 255 })
     @ForeignKey(() => Address)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    manager_staff_id!: string;
+    manager_staff_id!: string
 
     @BelongsTo(() => Staff)
     staff!: Staff
@@ -36,13 +36,13 @@ class Store extends Model {
     @ForeignKey(() => Address)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    address_id!: number;
+    address_id!: number
 
     @BelongsTo(() => Address)
     address!: Address
 
     @UpdatedAt
-    last_update!: Date;
+    last_update!: Date
 }
 
-export default Store;
+export default Store

@@ -11,8 +11,8 @@ import {
     HasMany,
     ForeignKey,
     BelongsTo
-} from "sequelize-typescript";
-import { City, Customers, Staff, Store } from ".";
+} from "sequelize-typescript"
+import { City, Customers, Staff, Store } from "."
 
 @Table({
     tableName: "address"
@@ -23,7 +23,7 @@ class Address extends Model {
     @AutoIncrement
     @PrimaryKey
     @Column(DataType.INTEGER)
-    address_id!: number;
+    address_id!: number
 
     @HasMany(() => Customers)
     customers!: Customers[]
@@ -37,37 +37,37 @@ class Address extends Model {
     @Length({ max: 50 })
     @AllowNull(false)
     @Column(DataType.STRING(50))
-    address!: string;
+    address!: string
 
     @Length({ max: 50 })
     @Column(DataType.STRING(50))
-    address2!: string;
+    address2!: string
 
     @Length({ max: 20 })
     @AllowNull(false)
     @Column(DataType.STRING(20))
-    district!: string;
+    district!: string
 
     @Length({ max: 255 })
     @ForeignKey(() => City)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    city_id!: number;
+    city_id!: number
 
     @BelongsTo(() => City)
     city!: City
 
     @Length({ max: 10 })
     @Column(DataType.STRING(10))
-    postal_code!: string;
+    postal_code!: string
 
     @Length({ max: 20 })
     @AllowNull(false)
     @Column(DataType.STRING(20))
-    phone!: string;
+    phone!: string
 
     @UpdatedAt
-    last_update!: Date;
+    last_update!: Date
 }
 
-export default Address;
+export default Address

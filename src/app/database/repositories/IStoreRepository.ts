@@ -1,6 +1,6 @@
-import { StoreInput, StoreOutput } from "@/shared/types/interfaces/Store";
-import IBaseRepository from "./IBaseRepository";
+import { StoreInput, StoreOutput } from "@/shared/types/interfaces/Store"
+import IBaseRepository from "./IBaseRepository"
 
-interface StoreRepository extends IBaseRepository<StoreInput, StoreOutput> {}
+interface IStoreRepository extends IBaseRepository<StoreInput, StoreOutput> {}
 
-export default StoreRepository
+export default IStoreRepository

@@ -10,8 +10,8 @@ import {
     DataType,
     ForeignKey,
     BelongsTo
-} from "sequelize-typescript";
-import { Customers, Staff } from ".";
+} from "sequelize-typescript"
+import { Customers, Rental, Staff } from "."
 
 @Table({
     tableName: "payment"
@@ -21,13 +21,13 @@ class Payments extends Model {
     @AutoIncrement
     @PrimaryKey
     @Column(DataType.INTEGER)
-    payment_id!: number;
+    payment_id!: number
 
     @Length({ max: 255 })
     @ForeignKey(() => Customers)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    customer_id!: string;
+    customer_id!: string
 
     @BelongsTo(() => Customers)
     customer!: Customers
@@ -36,7 +36,7 @@ class Payments extends Model {
     @ForeignKey(() => Staff)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    staff_id!: string;
+    staff_id!: string
 
     @BelongsTo(() => Staff)
     staff!: Staff
@@ -45,7 +45,7 @@ class Payments extends Model {
     @ForeignKey(() => Rental)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    rental_id!: number;
+    rental_id!: number
 
     @BelongsTo(() => Rental)
     rental!: Rental
@@ -53,7 +53,7 @@ class Payments extends Model {
     @Length({ max: 255 })
     @AllowNull(false)
     @Column(DataType.DECIMAL(5, 2))
-    amount!: number;
+    amount!: number
 
     @Length({ max: 255 })
     @AllowNull(false)
@@ -61,7 +61,7 @@ class Payments extends Model {
     payment_date!: Date
 
     @UpdatedAt
-    last_update!: Date;
+    last_update!: Date
 }
 
-export default Payments;
+export default Payments

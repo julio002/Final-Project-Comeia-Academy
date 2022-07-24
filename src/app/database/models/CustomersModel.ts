@@ -8,7 +8,6 @@ import {
     Length,
     AllowNull,
     Unique,
-    Default,
     AutoIncrement,
     PrimaryKey,
     DataType,
@@ -17,7 +16,7 @@ import {
     HasOne,
     HasMany
 } from "sequelize-typescript";
-import Address from "./AddressModel";
+import { Address, Payments, Rental } from ".";
 
 @Table({
     tableName: "customer"

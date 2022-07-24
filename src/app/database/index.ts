@@ -1,7 +1,7 @@
-import { Sequelize } from "sequelize-typescript";
+import { Sequelize } from "sequelize-typescript"
 import * as models from './models'
 
-const dialect = "postgres";
+const dialect = "postgres"
 
 const sequelize = new Sequelize("dvdrental", dialect, "julio002", {
     host: "localhost",
@@ -13,19 +13,19 @@ const sequelize = new Sequelize("dvdrental", dialect, "julio002", {
     },
     logging: false,
     models: Object.values(models),
-});
+})
 
 export const connectDatabase = async () => { 
     await sequelize
         .authenticate()
         .then(() => {
-            console.log(`Conectado ao ${dialect} com sucesso`);
+            console.log(`Conectado ao ${dialect} com sucesso`)
         })
         .catch((error: Error) => {
-            console.log(`Não foi possível conectar ao ${dialect}: ${error}`);
-        });
+            console.log(`Não foi possível conectar ao ${dialect}: ${error}`)
+        })
 
-    sequelize.sync({ alter: true });
+    sequelize.sync({ alter: true })
 }
 
-export default sequelize;
+export default sequelize

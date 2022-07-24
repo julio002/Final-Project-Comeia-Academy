@@ -10,8 +10,8 @@ import {
     DataType,
     ForeignKey,
     BelongsTo
-} from "sequelize-typescript";
-import Country from "./CountryModel";
+} from "sequelize-typescript"
+import Country from "./CountryModel"
 
 @Table({
     tableName: "city"
@@ -22,24 +22,24 @@ class City extends Model {
     @AutoIncrement
     @PrimaryKey
     @Column(DataType.INTEGER)
-    city_id!: number;
+    city_id!: number
 
     @Length({ max: 50 })
     @AllowNull(false)
     @Column(DataType.STRING(50))
-    city!: string;
+    city!: string
 
     @Length({ max: 50 })
     @ForeignKey(() => Country)
     @AllowNull(false)
     @Column(DataType.INTEGER)
-    country_id!: number;
+    country_id!: number
 
     @BelongsTo(() => Country)
     country!: Country
 
     @UpdatedAt
-    last_update!: Date;
+    last_update!: Date
 }
 
-export default City;
+export default City

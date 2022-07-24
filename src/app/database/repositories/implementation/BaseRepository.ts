@@ -1,6 +1,6 @@
-import { Model } from "sequelize-typescript";
-import { ResourceNotFoundError } from "@/shared/errors/";
-import IBaseRepository from "../IBaseRepository";
+import { Model } from "sequelize-typescript"
+import { ResourceNotFoundError } from "@/shared/errors/"
+import IBaseRepository from "../IBaseRepository"
 
 // TODO: Find a way to remove the @ts-ignore comments without getting any errors
 abstract class SequelizeBaseRepository<Input, Output>
@@ -12,50 +12,50 @@ abstract class SequelizeBaseRepository<Input, Output>
         // @ts-ignore
         return this.model.findAll({
             attributes,
-        });
+        })
     }
 
     public async getById(id: number, attributes?: string[]): Promise<Output> {
         // @ts-ignore
         const resource = await this.model.findByPk(id, {
             attributes,
-        });
+        })
 
         if (resource) {
             // @ts-ignore
-            return resource;
+            return resource
         }
 
-        throw new ResourceNotFoundError();
+        throw new ResourceNotFoundError()
     }
 
     public async create(data: any): Promise<Model> {
         // @ts-ignore
-        return this.model.create(data);
+        return this.model.create(data)
     }
 
     public async updateById(id: number, data: any): Promise<Output> {
-        const resource = await this.getById(id);
+        const resource = await this.getById(id)
 
         if (resource) {
             // @ts-ignore
-            return resource.update(data);
+            return resource.update(data)
         }
 
-        throw new ResourceNotFoundError();
+        throw new ResourceNotFoundError()
     }
 
     public async deleteById(id: number): Promise<boolean> {
-        const resource = await this.getById(id);
+        const resource = await this.getById(id)
 
         if (resource) {
             // @ts-ignore
-            await resource.destroy();
-            return true;
+            await resource.destroy()
+            return true
         }
 
-        throw new ResourceNotFoundError();
+        throw new ResourceNotFoundError()
     }
 }
 
-export default SequelizeBaseRepository;
+export default SequelizeBaseRepository

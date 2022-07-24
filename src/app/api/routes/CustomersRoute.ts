@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { CustomersController } from "../controllers";
+import { Router } from "express"
+import { CustomersController } from "../controllers"
 
 const customersRouter = Router()
 
@@ -15,4 +15,4 @@ customersRouter.put("/:id", customersController.updateById)
 
 customersRouter.delete("/:id", customersController.deleteById)
 
-export default customersRouter;
+export default customersRouter

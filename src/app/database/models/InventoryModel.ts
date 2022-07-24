@@ -9,8 +9,10 @@ import {
     PrimaryKey,
     BelongsTo,
     ForeignKey,
-    DataType
-} from "sequelize-typescript";
+    DataType,
+    HasOne
+} from "sequelize-typescript"
+import { Rental } from "."
 
 @Table({
     tableName: "inventory"
@@ -23,17 +25,20 @@ class Inventory extends Model {
     @Column(DataType.INTEGER)
     inventory_id!: number
 
+    @HasOne(() => Rental)
+    rental!: Rental
+
     @Length({ max: 255 })
     @AllowNull(false)
     @ForeignKey(() => Film)
     @Column(DataType.INTEGER)
-    film_id!: Number;
+    film_id!: Number
     
     @BelongsTo(() => Film)
     film!: Film
 
     @UpdatedAt
-    last_update!: Date;
+    last_update!: Date
 }
 
-export default Inventory;
+export default Inventory

@@ -1,8 +1,8 @@
-import { inject, injectable } from 'tsyringe';
+import { inject, injectable } from 'tsyringe'
 
-import { ICustomersRepository } from "@/app/database/repositories/";
-import { CustomersInput, CustomersOutput } from '@/shared/types/interfaces/Customers';
-import { Model } from 'sequelize-typescript';
+import { ICustomersRepository } from "@/app/database/repositories/"
+import { CustomersInput, CustomersOutput } from '@/shared/types/interfaces/Customers'
+import { Model } from 'sequelize-typescript'
 
 @injectable()
 class CustomersService {
@@ -32,4 +32,4 @@ class CustomersService {
     }
 }
 
-export default CustomersService;
+export default CustomersService

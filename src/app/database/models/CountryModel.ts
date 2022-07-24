@@ -9,8 +9,8 @@ import {
     PrimaryKey,
     DataType,
     HasMany,
-} from "sequelize-typescript";
-import City from "./CityModel";
+} from "sequelize-typescript"
+import City from "./CityModel"
 
 @Table({
     tableName: "country"
@@ -21,7 +21,7 @@ class Country extends Model {
     @PrimaryKey
     @AutoIncrement
     @Column(DataType.INTEGER)
-    country_id!: number;
+    country_id!: number
 
     @HasMany(() => City)
     city!: City[]
@@ -29,10 +29,10 @@ class Country extends Model {
     @Length({ max: 50 })
     @AllowNull(false)
     @Column(DataType.STRING(50))
-    country!: string;
+    country!: string
 
     @UpdatedAt
-    last_update!: Date;
+    last_update!: Date
 }
 
-export default Country;
+export default Country

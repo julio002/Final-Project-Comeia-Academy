@@ -1,6 +1,6 @@
-import CustomersService from "@/app/business/services/CustomersService";
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import CustomersService from "@/app/business/services/CustomersService"
+import { Request, Response } from "express"
+import { container } from "tsyringe"
 
 class CustomersController {
     public async getAll(req: Request, res: Response): Promise<void> {
