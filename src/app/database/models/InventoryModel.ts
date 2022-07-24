@@ -12,8 +12,10 @@ import {
     DataType
 } from "sequelize-typescript";
 
-@Table
-class inventory extends Model {
+@Table({
+    tableName: "inventory"
+})
+class Inventory extends Model {
 
     @Length({ max: 255 })
     @AutoIncrement
@@ -34,4 +36,4 @@ class inventory extends Model {
     last_update!: Date;
 }
 
-export default inventory;
+export default Inventory;

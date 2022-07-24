@@ -12,10 +12,12 @@ import {
     ForeignKey,
     BelongsTo
 } from "sequelize-typescript";
-import { City, Customers, Staff } from ".";
+import { City, Customers, Staff, Store } from ".";
 
-@Table
-class address extends Model {
+@Table({
+    tableName: "address"
+})
+class Address extends Model {
 
     @Length({ max: 255 })
     @AutoIncrement
@@ -68,4 +70,4 @@ class address extends Model {
     last_update!: Date;
 }
 
-export default address;
+export default Address;

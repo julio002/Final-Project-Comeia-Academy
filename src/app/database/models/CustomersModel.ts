@@ -19,8 +19,10 @@ import {
 } from "sequelize-typescript";
 import Address from "./AddressModel";
 
-@Table
-class customer extends Model {
+@Table({
+    tableName: "customer"
+})
+class Customers extends Model {
 
     @Length({ max: 255 })
     @AutoIncrement
@@ -82,4 +84,4 @@ class customer extends Model {
 
 }
 
-export default customer;
+export default Customers;

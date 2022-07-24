@@ -13,7 +13,9 @@ import {
 } from "sequelize-typescript";
 import Country from "./CountryModel";
 
-@Table
+@Table({
+    tableName: "city"
+})
 class City extends Model {
 
     @Length({ max: 255 })

@@ -16,10 +16,12 @@ import {
     Unique,
     HasOne
 } from "sequelize-typescript";
-import { Address } from ".";
+import { Address, Store, Payments } from ".";
 
-@Table
-class address extends Model {
+@Table({
+    tableName: "staff"
+})
+class Staff extends Model {
 
     @Length({ max: 255 })
     @AutoIncrement
@@ -87,4 +89,4 @@ class address extends Model {
 
 }
 
-export default address;
+export default Staff;

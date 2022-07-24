@@ -1,8 +1,5 @@
-import { IAddressRepository, ICityRepository, IInventoryRepository, IStaffRepository, IUserRepository } from '@/app/database/repositories';
-import ICountryRepository from '@/app/database/repositories/ICountryRepository';
-import ICustomersRepository from '@/app/database/repositories/ICustomersRepository';
-import { AddressRepository, CityRepository, CountryRepository, CustomersRepository, StaffRepository, UserRepository } from '@/app/database/repositories/implementation';
-import InventoryRepository from '@/app/database/repositories/implementation/InventoryRepository';
+import { IAddressRepository, ICustomersRepository,ICityRepository, ICountryRepository, IInventoryRepository, IPaymentsRepository, IStaffRepository, IStoreRepository, IUserRepository } from '@/app/database/repositories';
+import { AddressRepository, InventoryRepository, CityRepository, CountryRepository, CustomersRepository, PaymentsRepository, StaffRepository, StoreRepository, UserRepository } from '@/app/database/repositories/implementation';
 import { container } from 'tsyringe';
 
 container.registerSingleton<IUserRepository>("UserRepository", UserRepository)
@@ -12,3 +9,5 @@ container.registerSingleton<IAddressRepository>("AddressRepository", AddressRepo
 container.registerSingleton<ICityRepository>("CityRepository", CityRepository)
 container.registerSingleton<ICountryRepository>("CountryRepository", CountryRepository)
 container.registerSingleton<IStaffRepository>("StaffRepository", StaffRepository)
+container.registerSingleton<IStoreRepository>("StoreRepository", StoreRepository)
+container.registerSingleton<IPaymentsRepository>("PaymentsRepository", PaymentsRepository)
