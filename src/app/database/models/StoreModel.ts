@@ -24,7 +24,7 @@ class Store extends Model {
     store_id!: number
 
     @Length({ max: 255 })
-    @ForeignKey(() => Address)
+    @ForeignKey(() => Staff)
     @AllowNull(false)
     @Column(DataType.INTEGER)
     manager_staff_id!: string

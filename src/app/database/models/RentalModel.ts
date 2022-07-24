@@ -10,6 +10,7 @@ import {
     DataType,
     ForeignKey,
     BelongsTo,
+    CreatedAt,
 } from "sequelize-typescript"
 import { Customers, Inventory, Staff } from "."
 
@@ -17,16 +18,14 @@ import { Customers, Inventory, Staff } from "."
     tableName: "rental"
 })
 class Rental extends Model {
+    
     @Length({ max: 255 })
     @AutoIncrement
     @PrimaryKey
     @Column(DataType.INTEGER)
     rental_id!: number
 
-
-    @Length({ max: 255 })
-    @AllowNull(false)
-    @Column(DataType.DATE)
+    @CreatedAt
     rental_date!: Date
 
     @Length({ max: 255 })

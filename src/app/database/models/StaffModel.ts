@@ -71,8 +71,8 @@ class Staff extends Model {
     @Length({ max: 255})
     @AllowNull(false)
     @Default(true)
-    @Column(DataType.INTEGER)
-    active!: number
+    @Column(DataType.BOOLEAN)
+    active!: boolean
 
     @Length({ max: 16 })
     @AllowNull(false)

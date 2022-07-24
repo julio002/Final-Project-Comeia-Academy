@@ -59,9 +59,6 @@ class Payments extends Model {
     @AllowNull(false)
     @Column(DataType.DATE)
     payment_date!: Date
-
-    @UpdatedAt
-    last_update!: Date
 }
 
 export default Payments
