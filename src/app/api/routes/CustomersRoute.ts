@@ -14,3 +14,5 @@ customersRouter.post("/", customersController.create)
 customersRouter.put("/:id", customersController.updateById)
 
 customersRouter.delete("/:id", customersController.deleteById)
+
+export default customersRouter;

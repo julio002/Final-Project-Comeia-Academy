@@ -24,9 +24,11 @@ class inventory extends Model {
     @Length({ max: 255 })
     @AllowNull(false)
     @ForeignKey(() => Film)
-    @BelongsTo(() => Film)
     @Column(DataType.INTEGER)
-    film_id!: Film;
+    film_id!: Number;
+    
+    @BelongsTo(() => Film)
+    film!: Film
 
     @UpdatedAt
     last_update!: Date;

@@ -8,7 +8,9 @@ import {
     AutoIncrement,
     PrimaryKey,
     DataType,
+    HasMany,
 } from "sequelize-typescript";
+import City from "./CityModel";
 
 @Table
 class Country extends Model {
@@ -18,6 +20,9 @@ class Country extends Model {
     @AutoIncrement
     @Column(DataType.INTEGER)
     country_id!: number;
+
+    @HasMany(() => City)
+    city!: City[]
 
     @Length({ max: 50 })
     @AllowNull(false)

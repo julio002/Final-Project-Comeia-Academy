@@ -5,7 +5,6 @@ import {
     UpdatedAt,
     Length,
     AllowNull,
-    Default,
     AutoIncrement,
     PrimaryKey,
     DataType,
@@ -13,7 +12,7 @@ import {
     ForeignKey,
     BelongsTo
 } from "sequelize-typescript";
-import { City, Customers } from ".";
+import { City, Customers, Staff } from ".";
 
 @Table
 class address extends Model {
@@ -30,13 +29,15 @@ class address extends Model {
     @HasMany(() => Staff)
     staff!: Staff[]
 
+    @HasMany(() => Store)
+    store!: Store[]
+
     @Length({ max: 50 })
     @AllowNull(false)
     @Column(DataType.STRING(50))
     address!: string;
 
     @Length({ max: 50 })
-    @Default(true)
     @Column(DataType.STRING(50))
     address2!: string;
 
@@ -55,7 +56,6 @@ class address extends Model {
     city!: City
 
     @Length({ max: 10 })
-    @Default(true)
     @Column(DataType.STRING(10))
     postal_code!: string;
 

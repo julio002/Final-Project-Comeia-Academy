@@ -13,7 +13,9 @@ import {
     PrimaryKey,
     DataType,
     ForeignKey,
-    BelongsTo
+    BelongsTo,
+    HasOne,
+    HasMany
 } from "sequelize-typescript";
 import Address from "./AddressModel";
 
@@ -26,6 +28,12 @@ class customer extends Model {
     @PrimaryKey
     @Column(DataType.INTEGER)
     customer_id!: number
+
+    @HasOne(() => Rental)
+    rental!: Rental[]
+
+    @HasMany(() => Payments)
+    payments!: Payments[]
 
     @Length({ max: 255 })
     @AllowNull(false)
@@ -43,7 +51,6 @@ class customer extends Model {
     last_name!: string;
 
     @IsEmail
-    @Default(true)
     @Length({ max: 50 })
     @Unique
     @Column(DataType.STRING(50))
@@ -58,6 +65,7 @@ class customer extends Model {
     @BelongsTo(() => Address)
     address!: Address
 
+    @Length({ max: 255 })
     @AllowNull(false)
     @Column(DataType.BOOLEAN)
     activebool!: boolean;
@@ -68,9 +76,10 @@ class customer extends Model {
     @UpdatedAt
     last_update!: Date;
 
-    @Default(true)
+    @Length({ max: 255 })
     @Column(DataType.INTEGER)
     active!: number;
+
 }
 
 export default customer;
