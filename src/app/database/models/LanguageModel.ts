@@ -10,33 +10,27 @@ import {
   ForeignKey,
   PrimaryKey,
   DataType,
+  HasMany,
 } from "sequelize-typescript";
-import Category from "./CategoryModel";
 import Film from "./FilmModel";
 
 @Table
-class Film_Category extends Model {
+class Language extends Model {
   @Length({ max: 255 })
   @AutoIncrement
-  @AllowNull(false)
-  @ForeignKey(() => Film)
   @PrimaryKey
   @Column(DataType.INTEGER)
-  film_id!: number;
+  language_id!: number;
 
-  @BelongsTo(() => Film)
+  @HasMany(() => Film)
   film!: Film;
 
   @Length({ max: 255 })
   @AllowNull(false)
-  @ForeignKey(() => Category)
-  @Column(DataType.INTEGER)
-  category_id!: number;
-  
-  @BelongsTo(() => Category)
-  category!: Category
+  @Column(DataType.STRING)
+  name!: string;
 
   @UpdatedAt
   last_update!: Date;
 }
-export default Film_Category;
+export default Language;

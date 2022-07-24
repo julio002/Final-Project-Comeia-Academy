@@ -16,9 +16,11 @@ class Category extends Model {
   @Length({ max: 255 })
   @AutoIncrement
   @AllowNull(false)
-  @HasOne(() => Film_Category)
   @Column({ primaryKey: true })
-  category_id!: Film_Category[];
+  category_id!: number;
+
+  @HasOne(() => Film_Category)
+  film_category!: Film_Category;
 
   @Length({ min: 3, max: 255 })
   @Default(true)
@@ -27,6 +29,5 @@ class Category extends Model {
 
   @UpdatedAt
   last_update!: Date;
-
-  }
+}
 export default Category;

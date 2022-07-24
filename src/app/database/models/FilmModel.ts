@@ -14,17 +14,19 @@ import {
   ForeignKey,
 } from "sequelize-typescript";
 import { FilmCategory } from ".";
+import Language from "./LanguageModel";
 
 @Table
 class Film extends Model {
   @Length({ max: 255 })
   @AutoIncrement
-  @AllowNull(false)
   @PrimaryKey
-  @HasOne(() => FilmCategory)
   @Column(DataType.INTEGER)
-  film_id!: FilmCategory;
+  film_id!: number;
 
+  @HasOne(() => FilmCategory)
+  filmCategory!: FilmCategory
+  
   @Length({ max: 255 })
   @AllowNull(false)
   @Column(DataType.STRING)
@@ -41,9 +43,11 @@ class Film extends Model {
   @Length({ max: 255 })
   @AllowNull(false)
   @ForeignKey(() => Language)
-  @BelongsTo(() => Language)
   @Column(DataType.INTEGER)
-  language_id!: Language;
+  language_id!: number;
+  
+  @BelongsTo(() => Language)
+  language!: Language
 
   @Length({ max: 255 })
   @AllowNull(false)
