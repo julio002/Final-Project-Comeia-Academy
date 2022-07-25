@@ -1,7 +1,7 @@
-import { ICategoryRepository, IFilmCategoryRepository, IUserRepository } from '@/app/database/repositories';
+import { ICategoryRepository, IFilmActorRepository, IFilmCategoryRepository, IUserRepository } from '@/app/database/repositories';
 import IFilmRepository from '@/app/database/repositories/IFilmRepository';
 import ILanguageRepository from '@/app/database/repositories/ILanguageRepository';
-import { CategoryRepository, UserRepository } from '@/app/database/repositories/implementation';
+import { CategoryRepository, FilmActorRepository, UserRepository } from '@/app/database/repositories/implementation';
 import FilmCategoryRepository from '@/app/database/repositories/implementation/FilmCategoryRepository';
 import FilmRepository from '@/app/database/repositories/implementation/FilmRepository';
 import LanguageRepository from '@/app/database/repositories/implementation/LanguageRepository';
@@ -12,4 +12,5 @@ container.registerSingleton<ICategoryRepository>("CategoryRepository", CategoryR
 container.registerSingleton<IFilmCategoryRepository>("FIlmCategoryRepository", FilmCategoryRepository);
 container.registerSingleton<IFilmRepository>("FilmRepository", FilmRepository);
 container.registerSingleton<ILanguageRepository>("LanguageRepository", LanguageRepository);
+container.registerSingleton<IFilmActorRepository>("FilmActorRepository", FilmActorRepository);
 
