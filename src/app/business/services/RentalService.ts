@@ -1,5 +1,6 @@
 import { IRentalRepository } from "@/app/database/repositories";
 import { RentalInput, RentalOutput } from "@/shared/types/interfaces/Rental";
+import { Query } from "@/shared/types/query";
 import { Model } from "sequelize-typescript";
 import { inject, injectable } from "tsyringe";
 
@@ -10,8 +11,8 @@ class RentalService {
         private readonly RentalRepository: IRentalRepository
     ) {}
 
-    public async getAll(): Promise<RentalOutput[]> {
-        return await this.RentalRepository.getAll()
+    public async getAll(query: Query): Promise<RentalOutput[]> {
+        return await this.RentalRepository.getAll(query)
     }
     
     public async getById(id: number): Promise<RentalOutput> {

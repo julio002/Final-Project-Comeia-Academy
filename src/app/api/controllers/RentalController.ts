@@ -1,12 +1,24 @@
 import RentalService from "@/app/business/services/RentalService"
+import { Query } from "@/shared/types/query"
 import { Request, Response } from "express"
 import { container } from "tsyringe"
 
 class RentalController {
     public async getAll(req: Request, res: Response): Promise<void> {
+        
+        const { size, page, sort, order, ...filters } = req.query
+
+        const query = {
+            size: parseInt(size as string),
+            page: parseInt(page as string),
+            sort: req.query.sort as string,
+            order: req.query.order as string,
+            ...filters
+        }
+        
         const rentalService = container.resolve(RentalService)
 
-        const result = await rentalService.getAll()
+        const result = await rentalService.getAll(query)
 
         res.status(200).send(result)
     }

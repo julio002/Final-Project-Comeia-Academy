@@ -1,6 +1,8 @@
 import { Model } from "sequelize-typescript"
 import { ResourceNotFoundError } from "@/shared/errors/"
 import IBaseRepository from "../IBaseRepository"
+import { Query } from "@/shared/types/query"
+import { getPagination } from "@/shared/utils/getPagination"
 
 // TODO: Find a way to remove the @ts-ignore comments without getting any errors
 abstract class SequelizeBaseRepository<Input, Output>
@@ -8,11 +10,21 @@ abstract class SequelizeBaseRepository<Input, Output>
 {
     constructor(protected model: typeof Model) {}
 
-    public async getAll(attributes?: string[]): Promise<Output[]> {
+    public async getAll(query: Query, attributes?: string[]): Promise<Output[]> {
+
+        let { size, page, sort, order, ...filters } = query
+
+        const id = "customer_id"
+        const {...pagination} = getPagination(id, query)
+
         // @ts-ignore
         return this.model.findAndCountAll({
+            where: {
+                ...filters
+            },
             include: { all: true},
             attributes,
+            ...pagination
         })
     }
 
@@ -26,8 +38,7 @@ abstract class SequelizeBaseRepository<Input, Output>
             // @ts-ignore
             return resource
         }
-
-        throw new ResourceNotFoundError()
+            throw new ResourceNotFoundError()
     }
 
     public async create(data: any): Promise<Model> {
