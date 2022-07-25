@@ -15,20 +15,32 @@ class RentalService {
         return await this.RentalRepository.getAll(query)
     }
     
-    public async getById(id: number): Promise<RentalOutput> {
-        return await this.RentalRepository.getById(id)
+    public async getById(id: number): Promise<RentalOutput|unknown> {
+        try { 
+            return await this.RentalRepository.getById(id)
+        } catch (error) {
+            return error
+        }
     }
     
     public async create(data: RentalInput): Promise<Model> {
         return await this.RentalRepository.create(data)
     }
     
-    public async updateById(id: number,data: RentalInput): Promise<RentalOutput> {
-        return await this.RentalRepository.updateById(id, data)
+    public async updateById(id: number,data: RentalInput): Promise<RentalOutput|unknown> {
+        try {
+            return await this.RentalRepository.updateById(id, data)
+        } catch (error) {
+            return error
+        }
     }
     
-    public async deleteById(id: number): Promise<boolean> {
-        return await this.RentalRepository.deleteById(id)
+    public async deleteById(id: number): Promise<boolean|unknown> {
+        try {
+            return await this.RentalRepository.deleteById(id)
+        } catch (error) {
+            return error   
+        }
     }
 }
 

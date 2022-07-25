@@ -16,20 +16,32 @@ class CustomersService {
         return await this.CustomersRepository.getAll(query)  
     }
 
-    public async getById(id: number): Promise<CustomersOutput> {
-        return await this.CustomersRepository.getById(id)  
+    public async getById(id: number): Promise<CustomersOutput|unknown> {
+        try {
+            return await this.CustomersRepository.getById(id)  
+        } catch (error) {
+            return error
+        }
     }
 
     public async create(data: CustomersInput): Promise<Model> {
         return await this.CustomersRepository.create(data)  
     }
 
-    public async updateById(id: number, data: CustomersInput): Promise<CustomersOutput> {
-        return await this.CustomersRepository.updateById(id, data)  
+    public async updateById(id: number, data: CustomersInput): Promise<CustomersOutput|unknown> {
+        try {
+            return await this.CustomersRepository.updateById(id, data)  
+        } catch (error) {
+            return error
+        }
     }
 
-    public async deleteById(id: number): Promise<boolean> {
-        return await this.CustomersRepository.deleteById(id)  
+    public async deleteById(id: number): Promise<boolean|unknown> {
+        try {
+            return await this.CustomersRepository.deleteById(id)  
+        } catch (error) {
+            return error
+        }
     }
 }
 
