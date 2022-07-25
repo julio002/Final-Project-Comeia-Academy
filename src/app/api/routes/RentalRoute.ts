@@ -1,5 +1,6 @@
 import { Router } from "express"
 import { RentalController } from "../controllers"
+import { RentalCreateValidation, RentalUpdateValidation } from "../Validations/RentalValidation"
 
 const rentalRouter = Router()
 
@@ -9,9 +10,9 @@ rentalRouter.get("/", rentalController.getAll)
 
 rentalRouter.get("/:id", rentalController.getById)
 
-rentalRouter.post("/", rentalController.create)
+rentalRouter.post("/", RentalCreateValidation, rentalController.create)
 
-rentalRouter.put("/:id", rentalController.updateById)
+rentalRouter.put("/:id", RentalUpdateValidation, rentalController.updateById)
 
 rentalRouter.delete("/:id", rentalController.deleteById)
 

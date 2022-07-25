@@ -1,5 +1,6 @@
 import { Router } from "express"
 import { CustomersController } from "../controllers"
+import { CustomersCreateValidation, CustomersUpdateValidation } from "../Validations/CustomersValidation"
 
 const customersRouter = Router()
 
@@ -9,9 +10,9 @@ customersRouter.get("/", customersController.getAll)
 
 customersRouter.get("/:id", customersController.getById)
 
-customersRouter.post("/", customersController.create)
+customersRouter.post("/", CustomersCreateValidation, customersController.create)
 
-customersRouter.put("/:id", customersController.updateById)
+customersRouter.put("/:id", CustomersUpdateValidation, customersController.updateById)
 
 customersRouter.delete("/:id", customersController.deleteById)
 
