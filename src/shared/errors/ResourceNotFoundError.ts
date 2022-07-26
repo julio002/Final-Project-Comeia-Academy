@@ -1,4 +1,4 @@
-import BaseError from './BaseError';
+import BaseError from './BaseError'
 
 class ResourceNotFoundError extends BaseError {
   constructor(
@@ -12,8 +12,8 @@ class ResourceNotFoundError extends BaseError {
       'The requested resource was not found or does not exist.',
       originalName,
       stackTrace,
-    );
+    )
   }
 }
 
-export default ResourceNotFoundError;
+export default ResourceNotFoundError

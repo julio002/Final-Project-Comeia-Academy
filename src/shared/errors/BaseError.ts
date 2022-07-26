@@ -1,4 +1,4 @@
-import { APP_ENV } from '@/config/app';
+import { APP_ENV } from '@/config/app'
 
 abstract class BaseError {
   constructor(
@@ -19,7 +19,7 @@ abstract class BaseError {
         description: this.description,
         originalName: this.originalName,
         stackTrace: this.stackTrace,
-      };
+      }
     }
 
     return {
@@ -27,8 +27,8 @@ abstract class BaseError {
       name: this.name,
       title: this.title,
       description: this.description,
-    };
+    }
   }
 }
 
-export default BaseError;
+export default BaseError

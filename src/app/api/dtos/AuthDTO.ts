@@ -1,17 +1,17 @@
-import { UserOutput } from "@/shared/types/interfaces/User";
+import { UserOutput } from "@/shared/types/interfaces/User"
 
 export interface AuthSignUpReqDTO {
-    name: string;
-    email: string;
-    password: string;
+    name: string
+    email: string
+    password: string
 }
 
 export interface AuthSignInReqDTO {
-    email: string;
-    password: string;
+    email: string
+    password: string
 }
 
 export interface AuthSignResDTO {
-    user: UserOutput;
-    token: string;
+    user: UserOutput
+    token: string
 }

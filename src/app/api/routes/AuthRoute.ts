@@ -1,13 +1,13 @@
-import { Router } from "express";
-import { AuthController } from "../controllers";
-import { AuthSignUpValidation } from "../validations";
+import { Router } from "express"
+import { AuthController } from "../controllers"
+import { AuthSignValidation } from "../validations/AuthValidation"
 
-const authRouter = Router();
+const authRouter = Router()
 
-const authController = new AuthController();
+const authController = new AuthController()
 
-authRouter.post("/signup", AuthSignUpValidation, authController.signUp);
+authRouter.post("/signup", AuthSignValidation,authController.signUp)
 
-authRouter.post("/signin", authController.signIn);
+authRouter.post("/signin", AuthSignValidation,authController.signIn)
 
-export default authRouter;
+export default authRouter

@@ -1,1 +1,1 @@
-export const AUTH_SECRET = 'secret';
+export const AUTH_SECRET = 'secret'

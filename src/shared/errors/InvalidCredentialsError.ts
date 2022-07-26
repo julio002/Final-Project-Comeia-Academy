@@ -1,4 +1,4 @@
-import BaseError from './BaseError';
+import BaseError from './BaseError'
 
 class InvalidCredentalsError extends BaseError {
   constructor() {
@@ -7,8 +7,8 @@ class InvalidCredentalsError extends BaseError {
       'InvalidCredentialsError',
       'Invalid Credentials',
       'The provided email and/or password are incorrect',
-    );
+    )
   }
 }
 
-export default InvalidCredentalsError;
+export default InvalidCredentalsError
