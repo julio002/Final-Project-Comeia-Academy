@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { RentalController } from "../controllers"
-import { RentalCreateValidation, RentalUpdateValidation } from "../Validations/RentalValidation"
+import { RentalCreateValidation, RentalUpdateValidation } from "../validations/RentalValidation"
 
 const rentalRouter = Router()
 
