@@ -1,0 +1,1 @@
+export { AuthSignUpValidation } from './AuthValidation';

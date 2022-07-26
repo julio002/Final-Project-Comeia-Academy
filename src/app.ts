@@ -5,9 +5,9 @@ import '@/shared/containers/'
 
 import express, { Application, NextFunction, Request, Response } from "express"
 import bodyParser from 'body-parser'
-
-import router from '@/app/api/routes'
-import { connectDatabase } from "@/app/database"
+import router from '@/app/api/routes';
+import { connectDatabase } from "@/app/database";
+import { errors } from 'celebrate';
 
 const app: Application = express()
 const port: number = 3333
@@ -19,6 +19,8 @@ app.use('/api/v1', router)
 app.get('/', (req: Request, res: Response) => {
     res.send({ message: "Object Oriented Architecture" })
 })
+
+app.use(errors());
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     console.error(err)
