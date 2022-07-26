@@ -11,22 +11,20 @@ import {
   DataType,
   HasOne,
   BelongsTo,
+  HasMany,
 } from "sequelize-typescript";
-import Film_Actor from "./FilmActorModel";
+import FilmActor from "./FilmActorModel";
 
 @Table
 class Actor extends Model {
   @Length({ max: 255 })
-  @AutoIncrement
-  @AllowNull(false)
-  @ForeignKey(() => Film_Actor)
   @PrimaryKey
   @Column(DataType.INTEGER)
   actor_id!: number;
 
-  @BelongsTo(() => Film_Actor)
-  film_actor!: Film_Actor;
-
+  @HasOne(() => FilmActor)
+  film_actor!: FilmActor;
+  
   @Length({ max: 45 })
   @AllowNull(false)
   @Column(DataType.STRING)

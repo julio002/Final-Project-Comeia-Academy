@@ -17,7 +17,6 @@ import Film from "./FilmModel";
 @Table
 class Language extends Model {
   @Length({ max: 255 })
-  @AutoIncrement
   @PrimaryKey
   @Column(DataType.INTEGER)
   language_id!: number;

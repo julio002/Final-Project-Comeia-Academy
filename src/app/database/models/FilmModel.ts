@@ -13,20 +13,24 @@ import {
   HasOne,
   ForeignKey,
 } from "sequelize-typescript";
-import { FilmCategory } from ".";
-import Language from "./LanguageModel";
+import { FilmActor, FilmCategory, Language } from ".";
 
 @Table
 class Film extends Model {
   @Length({ max: 255 })
-  @AutoIncrement
   @PrimaryKey
   @Column(DataType.INTEGER)
   film_id!: number;
 
   @HasOne(() => FilmCategory)
   filmCategory!: FilmCategory
+
+  @HasOne(() => FilmActor)
+  filmactor!: FilmActor
   
+  // @HasMany(()=> Inventory)
+  // inventory!: Inventory
+
   @Length({ max: 255 })
   @AllowNull(false)
   @Column(DataType.STRING)

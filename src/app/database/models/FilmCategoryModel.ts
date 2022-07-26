@@ -17,8 +17,6 @@ import Film from "./FilmModel";
 @Table
 class Film_Category extends Model {
   @Length({ max: 255 })
-  @AutoIncrement
-  @AllowNull(false)
   @ForeignKey(() => Film)
   @PrimaryKey
   @Column(DataType.INTEGER)

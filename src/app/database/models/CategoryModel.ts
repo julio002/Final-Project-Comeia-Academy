@@ -14,7 +14,6 @@ import Film_Category from "./FilmCategoryModel";
 @Table
 class Category extends Model {
   @Length({ max: 255 })
-  @AutoIncrement
   @AllowNull(false)
   @Column({ primaryKey: true })
   category_id!: number;

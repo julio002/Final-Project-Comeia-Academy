@@ -10,6 +10,7 @@ import {
     PrimaryKey,
     DataType,
     HasOne,
+    BelongsTo,
   } from "sequelize-typescript";
 import Actor from "./ActorModel";
   import Film from "./FilmModel";
@@ -17,12 +18,12 @@ import Actor from "./ActorModel";
   @Table
   class FilmActor extends Model {
     @Length({ max: 255 })
-    @AutoIncrement
     @ForeignKey(() => Actor)
+    @PrimaryKey
     @Column(DataType.INTEGER)
     actor_id!: number;
   
-    @HasOne(() => Actor)
+    @BelongsTo(() => Actor)
     actor!: Actor;
   
     @Length({ max: 255 })
@@ -31,7 +32,7 @@ import Actor from "./ActorModel";
     @Column(DataType.INTEGER)
     film_id!: number;
     
-    @HasOne(() => Film)
+    @BelongsTo(() => Film)
     film!: Film
   
     @UpdatedAt
