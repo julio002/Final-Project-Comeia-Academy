@@ -22,7 +22,7 @@ abstract class SequelizeBaseRepository<Input, Output>
             where: {
                 ...filters
             },
-            include: { all: true},
+            include: { all: true },
             attributes,
             ...pagination
         })
@@ -31,6 +31,7 @@ abstract class SequelizeBaseRepository<Input, Output>
     public async getById(id: number, attributes?: string[]): Promise<Output> {
         // @ts-ignore
         const resource = await this.model.findByPk(id, {
+            include: { all: true },
             attributes,
         })
 
