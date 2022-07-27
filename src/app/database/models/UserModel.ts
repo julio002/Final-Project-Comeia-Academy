@@ -9,37 +9,37 @@ import {
     AllowNull,
     Unique,
     Default,
-} from "sequelize-typescript";
+} from "sequelize-typescript"
 
 @Table
 class User extends Model {
     @Length({ min: 3, max: 255 })
     @AllowNull(false)
     @Column
-    name!: string;
+    name!: string
 
     @IsEmail
     @Length({ max: 254 })
     @Unique
     @AllowNull(false)
     @Column
-    email!: string;
+    email!: string
 
     @Length({ max: 60 })
     @AllowNull(false)
     @Column
-    password!: string;
+    password!: string
 
     @Default(false)
     @AllowNull(false)
     @Column
-    active!: boolean;
+    active!: boolean
 
     @CreatedAt
-    createdAt!: Date;
+    createdAt!: Date
 
     @UpdatedAt
-    updatedAt!: Date;
+    updatedAt!: Date
 }
 
-export default User;
+export default User

@@ -1,4 +1,4 @@
-import BaseError from './BaseError';
+import BaseError from './BaseError'
 
 class EmailAlreadyInUseError extends BaseError {
   constructor() {
@@ -7,8 +7,8 @@ class EmailAlreadyInUseError extends BaseError {
       'EmailAlreadyInUseError',
       'Email Already In Use',
       'The provided e-mail is already being used by another account.',
-    );
+    )
   }
 }
 
-export default EmailAlreadyInUseError;
+export default EmailAlreadyInUseError

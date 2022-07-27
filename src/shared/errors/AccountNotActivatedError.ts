@@ -1,4 +1,4 @@
-import BaseError from './BaseError';
+import BaseError from './BaseError'
 
 class AccountNotActivatedError extends BaseError {
   constructor() {
@@ -7,8 +7,8 @@ class AccountNotActivatedError extends BaseError {
       'AccountNotActivatedError',
       'Account Not Activated',
       'Your account has not been activated yet, check your e-mail.',
-    );
+    )
   }
 }
 
-export default AccountNotActivatedError;
+export default AccountNotActivatedError
