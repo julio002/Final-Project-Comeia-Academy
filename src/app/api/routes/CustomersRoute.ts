@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { CustomersController } from "../controllers"
-import { CustomersCreateValidation, CustomersUpdateValidation } from "../validations/CustomersValidation"
+import { CustomersCreateValidation, CustomersUpdateValidation } from "../validations"
 
 const customersRouter = Router()
 

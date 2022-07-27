@@ -14,7 +14,9 @@ import {
 } from "sequelize-typescript";
 import Film from "./FilmModel";
 
-@Table
+@Table({
+  tableName: "language"
+})
 class Language extends Model {
   @Length({ max: 255 })
   @PrimaryKey

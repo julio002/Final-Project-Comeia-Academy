@@ -5,7 +5,6 @@ import {
   UpdatedAt,
   Length,
   AllowNull,
-  AutoIncrement,
   BelongsTo,
   ForeignKey,
   PrimaryKey,
@@ -14,7 +13,9 @@ import {
 import Category from "./CategoryModel";
 import Film from "./FilmModel";
 
-@Table
+@Table({
+  tableName: "film_category"
+})
 class Film_Category extends Model {
   @Length({ max: 255 })
   @ForeignKey(() => Film)

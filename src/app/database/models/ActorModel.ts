@@ -5,17 +5,15 @@ import {
   UpdatedAt,
   Length,
   AllowNull,
-  AutoIncrement,
-  ForeignKey,
   PrimaryKey,
   DataType,
   HasOne,
-  BelongsTo,
-  HasMany,
 } from "sequelize-typescript";
 import FilmActor from "./FilmActorModel";
 
-@Table
+@Table({
+  tableName: "actor"
+})
 class Actor extends Model {
   @Length({ max: 255 })
   @PrimaryKey

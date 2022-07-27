@@ -1,15 +1,9 @@
-import {
-  LanguageInput,
-  LanguageOutPut,
-} from "@/shared/types/interfaces/Language";
+import {LanguageInput,LanguageOutPut,} from "@/shared/types/interfaces/Language";
 import { BaseRepository } from ".";
 import { Language } from "../../models";
 import ILanguageRepository from "../ILanguageRepository";
 
-class LanguageRepository
-  extends BaseRepository<LanguageInput, LanguageOutPut>
-  implements ILanguageRepository
-{
+class LanguageRepository extends BaseRepository<LanguageInput, LanguageOutPut> implements ILanguageRepository {
   constructor() {
     super(Language);
   }

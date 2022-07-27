@@ -5,17 +5,19 @@ import {
   UpdatedAt,
   Length,
   AllowNull,
-  AutoIncrement,
   BelongsTo,
   DataType,
   PrimaryKey,
-  HasMany,
   HasOne,
   ForeignKey,
+  HasMany,
+  Default,
 } from "sequelize-typescript";
-import { FilmActor, FilmCategory, Language } from ".";
+import { FilmActor, FilmCategory, Inventory, Language } from ".";
 
-@Table
+@Table({
+  tableName: "film"
+})
 class Film extends Model {
   @Length({ max: 255 })
   @PrimaryKey
@@ -26,10 +28,10 @@ class Film extends Model {
   filmCategory!: FilmCategory
 
   @HasOne(() => FilmActor)
-  filmactor!: FilmActor
+  filmActor!: FilmActor
   
-  // @HasMany(()=> Inventory)
-  // inventory!: Inventory
+  @HasMany(()=> Inventory)
+  inventory!: Inventory
 
   @Length({ max: 255 })
   @AllowNull(false)
@@ -41,8 +43,8 @@ class Film extends Model {
   description!: string;
 
   @Length({ max: 255 })
-  @Column(DataType.DATE)
-  release_year!: Date;
+  @Column(DataType.STRING)
+  release_year!: string;
 
   @Length({ max: 255 })
   @AllowNull(false)
@@ -68,6 +70,7 @@ class Film extends Model {
   length!: number;
 
   @Length({ max: 255 })
+  @Default(19.99)
   @AllowNull(false)
   @Column(DataType.DECIMAL(5, 2))
   replacemente_cost!: number;
@@ -82,10 +85,5 @@ class Film extends Model {
   @Length({ max: 255 })
   @Column(DataType.STRING)
   special_features!: string;
-
-  @Length({ max: 255 })
-  @AllowNull(false)
-  @Column(DataType.STRING)
-  full_text!: string;
 }
 export default Film;

@@ -11,21 +11,8 @@ abstract class SequelizeBaseRepository<Input, Output>
     constructor(protected model: typeof Model) {}
 
     public async getAll(query: Query, attributes?: string[]): Promise<Output[]> {
-
-        let { size, page, sort, order, ...filters } = query
-
-        const id = "customer_id"
-        const {...pagination} = getPagination(id, query)
-
         // @ts-ignore
-        return this.model.findAndCountAll({
-            where: {
-                ...filters
-            },
-            include: { all: true },
-            attributes,
-            ...pagination
-        })
+        return this.model.findAndCountAll()
     }
 
     public async getById(id: number, attributes?: string[]): Promise<Output> {

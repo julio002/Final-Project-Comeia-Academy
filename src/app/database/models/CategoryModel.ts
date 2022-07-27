@@ -5,13 +5,14 @@ import {
   UpdatedAt,
   Length,
   AllowNull,
-  AutoIncrement,
   HasOne,
   Default,
 } from "sequelize-typescript";
 import Film_Category from "./FilmCategoryModel";
 
-@Table
+@Table({
+  tableName: "category"
+})
 class Category extends Model {
   @Length({ max: 255 })
   @AllowNull(false)
